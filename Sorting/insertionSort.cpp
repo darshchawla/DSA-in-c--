@@ -1,24 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void bubble_sort(int arr[], int size)
+void insertion_sort(int arr[], int size)
 {
-    for (int i = size - 1; i >= 1; i--)
+    for (int i = 0; i <= size - 1; i++)
     {
-        int didSwap = 0;
-        for (int j = 0; j <= i - 1; j++)
+        int j = i;
+        while (j > 0 && arr[j - 1] > arr[j])
         {
-            if (arr[j] > arr[j + 1])
-            {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                didSwap = 1;
-            }
-        }
-        if (didSwap == 0)
-        {
-            break;
+            int temp = arr[j];
+            arr[j] = arr[j - 1];
+            arr[j - 1] = temp;
+
+            j--;
         }
     }
 }
@@ -53,7 +47,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    bubble_sort(arr, size);
+    insertion_sort(arr, size);
 
     cout << "The sorted array is : ";
 
