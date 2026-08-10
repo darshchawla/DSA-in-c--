@@ -19,6 +19,16 @@ int main()
         cout << endl;
     }
 
+    cout << "The array is : ";
+
+    for (int i = 0; i < size; i++)
+    {
+        cout << arr[i] << " ";
+    }
+
+    cout << endl;
+    cout << endl;
+
     int largest = arr[0];
 
     int secondLargest = arr[0];
