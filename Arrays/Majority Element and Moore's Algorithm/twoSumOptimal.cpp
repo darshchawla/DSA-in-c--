@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-vector<int> pairSum(vector<int> number, int target)
+vector<int> pairSum(vector<int> &number, int target)
 {
     vector<int> answer;
     int size = number.size();
