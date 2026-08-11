@@ -43,11 +43,15 @@ int main()
         {
             if (arr[i] + arr[j] == target)
             {
-                if (found != false)
+                if (found == false)
                 {
                     cout << "The pair with targeted sum " << target << " is : ";
                 }
                 cout << "(" << arr[i] << " , " << arr[j] << ")" << endl;
+
+                cout << endl;
+
+                cout << "The indices of the pair is : " << "(" << i << ", " << j << ")" << endl;
 
                 found = true;
             }
