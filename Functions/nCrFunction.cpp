@@ -38,8 +38,6 @@ int main()
 
     cout << endl;
 
-    factorial(n);
-
     int answer = nCr(n, r);
 
     cout << "The answer is : " << answer << endl;
