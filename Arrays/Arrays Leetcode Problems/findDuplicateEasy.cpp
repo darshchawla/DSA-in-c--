@@ -25,8 +25,6 @@ int main()
 
     int arr[size];
 
-    // Number from 1 to size - 1
-
     for (int i = 0; i < size; i++)
     {
         int a = i + 1;
