@@ -109,5 +109,11 @@ int main()
 
     cout << "The first and last occurrence of the element " << target << " is at indices : " << "(" << a << ", " << b << ")" << endl;
 
+    cout << endl;
+
+    int totalOccurrence = (b - a) + 1;
+
+    cout << "The total number of occurrences of " << target << " is : " << totalOccurrence << endl;
+
     return 0;
 }
