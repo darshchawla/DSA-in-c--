@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int peakIndex(int arr[], int size)
+int pivotElement(int arr[], int size)
 {
     int start = 0;
     int end = size - 1;
@@ -10,11 +10,7 @@ int peakIndex(int arr[], int size)
     {
         int mid = start + (end - start) / 2;
 
-        if (arr[mid - 1] < arr[mid] && arr[mid] > arr[mid + 1])
-        {
-            return mid;
-        }
-        if (arr[mid] < arr[mid + 1])
+        if (arr[mid] >= arr[0])
         {
             start = mid + 1;
         }
@@ -24,6 +20,8 @@ int peakIndex(int arr[], int size)
             end = mid;
         }
     }
+
+    return start;
 }
 
 int main()
@@ -32,17 +30,18 @@ int main()
     cout << "Enter the size of the array : ";
     cin >> size;
 
+    cout << endl;
+
     int arr[size];
 
-    cout << endl;
+    cout << "Enter all the element of the array : ";
 
     for (int i = 0; i < size; i++)
     {
-        int a = i + 1;
-        cout << "Enter element number " << a << " : ";
         cin >> arr[i];
-        cout << endl;
     }
+
+    cout << endl;
 
     cout << "The array is : ";
 
@@ -54,9 +53,9 @@ int main()
     cout << endl;
     cout << endl;
 
-    int a = peakIndex(arr, size);
+    int a = pivotElement(arr, size);
 
-    cout << "The peak index in the mountain array is : " << a << endl;
+    cout << "The index of the pivot element in the array is : " << a << endl;
 
     return 0;
 }
