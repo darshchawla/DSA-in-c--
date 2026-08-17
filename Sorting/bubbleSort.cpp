@@ -5,6 +5,8 @@ void bubble_sort(int arr[], int size)
 {
     for (int i = 1; i < size; i++)
     {
+        bool swapped = false;
+
         for (int j = 0; j < size - i; j++)
         {
             if (arr[j] > arr[j + 1])
@@ -12,7 +14,13 @@ void bubble_sort(int arr[], int size)
                 int temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
+
+                swapped = true;
             }
+        }
+        if (swapped == false)
+        {
+            break;
         }
     }
 }
