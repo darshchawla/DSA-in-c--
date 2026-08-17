@@ -3,22 +3,16 @@ using namespace std;
 
 void bubble_sort(int arr[], int size)
 {
-    for (int i = size - 1; i >= 1; i--)
+    for (int i = 1; i < size; i++)
     {
-        int didSwap = 0;
-        for (int j = 0; j <= i - 1; j++)
+        for (int j = 0; j < size - i; j++)
         {
             if (arr[j] > arr[j + 1])
             {
                 int temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
-                didSwap = 1;
             }
-        }
-        if (didSwap == 0)
-        {
-            break;
         }
     }
 }
