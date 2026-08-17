@@ -1,9 +1,9 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
-int maxArea(int arr[])
+int maxArea(int arr[], int size)
 {
-    int size = 9;
     int maxWater = 0;
 
     for (int i = 0; i < size; i++)
@@ -27,7 +27,7 @@ int main()
 
     // int arr[2] = {1, 1};  // answer = 1;
 
-    int a = maxArea(arr);
+    int a = maxArea(arr, 9);
 
     cout << "The container with most water is : " << a << endl;
 
