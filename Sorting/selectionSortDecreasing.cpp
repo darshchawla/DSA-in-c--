@@ -1,19 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void insertion_sort(int arr[], int size)
+void selection_sort(int arr[], int size)
 {
-    for (int i = 0; i <= size - 1; i++)
+    for (int i = 0; i <= size - 2; i++)
     {
-        int current = arr[i];
-        int previous = i - 1;
-        while (previous >= 0 && arr[previous] > current)
+        int minimum = i;
+        for (int j = i; j <= size - 1; j++)
         {
-            arr[previous + 1] = arr[previous];
-            previous--;
+            if (arr[j] > arr[minimum])
+            {
+                minimum = j;
+            }
         }
-
-        arr[previous + 1] = current;
+        int temp = arr[i];
+        arr[i] = arr[minimum];
+        arr[minimum] = temp;
     }
 }
 
@@ -47,7 +49,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    insertion_sort(arr, size);
+    selection_sort(arr, size);
 
     cout << "The sorted array is : ";
 
