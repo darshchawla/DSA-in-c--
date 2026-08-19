@@ -16,11 +16,13 @@ char maxCharacter(string s)
         {
             number = ch - 'a';
         }
-
-        // uppercase
-        else
+        else if (ch >= 'A' && ch <= 'Z')
         {
             number = ch - 'A';
+        }
+        else
+        {
+            continue;
         }
 
         arr[number]++;
