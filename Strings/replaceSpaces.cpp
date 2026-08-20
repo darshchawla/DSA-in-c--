@@ -12,10 +12,13 @@ string replaceSpaces(string s)
             temp.push_back('@');
             temp.push_back('4');
             temp.push_back('0');
+
+            // temp += "@40";
         }
         else
         {
             temp.push_back(s[i]);
+            // temp += s[i];
         }
     }
 
