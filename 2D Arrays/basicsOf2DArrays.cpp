@@ -5,14 +5,14 @@ int main()
 {
     // Input number of rows
     int r;
-    cout << "Enter number of rows for row wise printing : ";
+    cout << "Enter number of rows : ";
     cin >> r;
 
     cout << endl;
 
     // Input number of columns
     int c;
-    cout << "Enter number of columns for row wise printing : ";
+    cout << "Enter number of columns : ";
     cin >> c;
 
     cout << endl;
