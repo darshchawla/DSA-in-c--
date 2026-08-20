@@ -28,7 +28,6 @@ int main()
     for (int i = 0; i < size; i++)
     {
         int a = i + 1;
-        ;
         cout << "Enter element number " << a << " : ";
         cin >> arr[i];
         cout << endl;
