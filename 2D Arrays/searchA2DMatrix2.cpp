@@ -4,14 +4,12 @@ using namespace std;
 
 bool binarySearch(vector<vector<int>> arr, int row, int column, int target)
 {
-    int start = 0;
-    int end = ((row * column) - 1);
+    int rowIndex=0;
+    int columnIndex=column-1;
 
-    while (start <= end)
+    while (rowIndex<row && columnIndex>=0)
     {
-        int mid = start + (end - start) / 2;
-
-        int element = arr[mid / column][mid % column];
+        int element = arr[rowIndex][columnIndex];
 
         if (element == target)
         {
@@ -20,12 +18,12 @@ bool binarySearch(vector<vector<int>> arr, int row, int column, int target)
 
         if (element < target)
         {
-            start = mid + 1;
+            rowIndex++;
         }
 
         else
         {
-            end = mid - 1;
+            columnIndex--;
         }
     }
 
