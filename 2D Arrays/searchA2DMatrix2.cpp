@@ -4,10 +4,10 @@ using namespace std;
 
 bool binarySearch(vector<vector<int>> arr, int row, int column, int target)
 {
-    int rowIndex=0;
-    int columnIndex=column-1;
+    int rowIndex = 0;
+    int columnIndex = column - 1;
 
-    while (rowIndex<row && columnIndex>=0)
+    while (rowIndex < row && columnIndex >= 0)
     {
         int element = arr[rowIndex][columnIndex];
 
