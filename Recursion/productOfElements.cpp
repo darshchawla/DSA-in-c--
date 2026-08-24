@@ -3,9 +3,6 @@ using namespace std;
 
 int productOfElements(int arr[], int size)
 {
-
-    int product = 1;
-
     // Base Case
     if (size == 1)
     {
@@ -14,7 +11,9 @@ int productOfElements(int arr[], int size)
 
     int answer = productOfElements(arr + 1, size - 1);
 
-    return arr[0] * answer;
+    int product = arr[0] * answer;
+
+    return product;
 }
 
 int main()

@@ -3,9 +3,6 @@ using namespace std;
 
 int sumOfElements(int arr[], int size)
 {
-
-    int sum = 0;
-
     // Base Case
     if (size == 1)
     {
@@ -14,7 +11,9 @@ int sumOfElements(int arr[], int size)
 
     int answer = sumOfElements(arr + 1, size - 1);
 
-    return arr[0] + answer;
+    int sum = arr[0] + answer;
+
+    return sum;
 }
 
 int main()
