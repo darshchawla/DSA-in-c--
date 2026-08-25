@@ -60,6 +60,9 @@ void merge(int arr[], int start, int end)
         mainArrayIndex++;
         index2++;
     }
+
+    delete []first;
+    delete []second;
 }
 
 void merge_Sort(int arr[], int size, int start, int end)
