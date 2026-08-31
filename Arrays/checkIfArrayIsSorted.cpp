@@ -1,23 +1,45 @@
 #include <iostream>
+#include <vector>
 using namespace std;
+
+// Time Complexity -> O(n).
+
+bool checkSorted(vector<int> &arr, int size)
+{
+
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] >= arr[i - 1])
+        {
+            
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 int main()
 {
     int size;
-    cout << "Enter the size of array: ";
+    cout << "Enter the size of array : ";
     cin >> size;
 
     cout << endl;
 
-    int arr[size];
+    vector<int> arr(size);
+
+    cout << "Enter all the elements of the array : ";
 
     for (int i = 0; i < size; i++)
     {
-        int a = i + 1;
-        cout << "Enter element number " << a << " : ";
         cin >> arr[i];
-        cout << endl;
     }
+
+    cout << endl;
 
     cout << "The array is : ";
 
@@ -29,16 +51,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    bool isSorted = true;
-
-    for (int i = 1; i < size; i++)
-    {
-        if (arr[i] <= arr[i - 1])
-        {
-            isSorted = false;
-            break;
-        }
-    }
+    int isSorted = checkSorted(arr, size);
 
     if (isSorted == true)
     {
