@@ -3,6 +3,8 @@
 #include <algorithm>
 using namespace std;
 
+// Time Complexity -> O(nlogn) + O(n)
+
 int secondLargest(vector<int> &arr, int size)
 {
     sort(arr.begin(), arr.end());
@@ -16,11 +18,11 @@ int secondLargest(vector<int> &arr, int size)
         if (arr[i] != largest)
         {
             secondLargest = arr[i];
-            break;
+            return secondLargest;
         }
     }
 
-    return secondLargest;
+    return -1;
 }
 
 int main()

@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// Time Complexity -> O(n) + O(n) = O(2n) = O(n).
+
 int main()
 {
     int size;
