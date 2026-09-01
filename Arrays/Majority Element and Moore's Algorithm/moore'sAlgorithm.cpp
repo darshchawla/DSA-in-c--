@@ -4,21 +4,42 @@ using namespace std;
 
 int majorityElement(vector<int> &numbers)
 {
-    int frequency = 0;
-    int answer = 0;
+    int count = 0;
+    int element = 0;
     int size = numbers.size();
 
     for (int i = 0; i < size; i++)
     {
-        if (frequency == 0)
-            answer = numbers[i];
-        if (answer == numbers[i])
-            frequency++;
+        if (count == 0)
+        {
+            count = 1;
+            element = numbers[i];
+        }
+        else if (numbers[i] == element)
+        {
+            count++;
+        }
         else
-            frequency--;
+        {
+            count--;
+        }
     }
 
-    return answer;
+    int count1 = 0;
+    for (int i = 0; i < size; i++)
+    {
+        if (numbers[i] == element)
+        {
+            count1++;
+        }
+    }
+
+    if (count1 > (size / 2))
+    {
+        return element;
+    }
+
+    return -1;
 }
 
 int main()
@@ -52,7 +73,7 @@ int main()
 
     int answer = majorityElement(number);
 
-    cout << "The majority element is : " << answer << endl;
+    cout << "The majority element in the array is : " << answer << endl;
 
     return 0;
 }
