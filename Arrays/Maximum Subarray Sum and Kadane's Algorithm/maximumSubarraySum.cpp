@@ -1,6 +1,43 @@
 #include <iostream>
+#include <vector>
 #include <climits>
 using namespace std;
+
+void printSubarrays(vector<int> &arr, int size)
+{
+
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = i; j < size; j++)
+        {
+            cout << "{ ";
+            for (int k = i; k <= j; k++)
+            {
+                cout << arr[k] << " ";
+            }
+            cout << "}   ";
+        }
+        cout << endl;
+    }
+}
+
+int maximumSubarraySum(vector<int> &arr, int size)
+{
+    int maxSum = INT_MIN;
+
+    for (int i = 0; i < size; i++)
+    {
+        int sum = 0;
+
+        for (int j = i; j < size; j++)
+        {
+            sum += arr[j];
+            maxSum = max(maxSum, sum);
+        }
+    }
+
+    return maxSum;
+}
 
 int main()
 {
@@ -10,60 +47,42 @@ int main()
 
     cout << endl;
 
-    int arr[size];
+    vector<int> arr(size);
+
+    cout<<"Enter all the elements of the array : ";
 
     for (int i = 0; i < size; i++)
     {
-        int a = i + 1;
-        cout << "Enter element number " << a << " : ";
-        cin >> arr[i];
-        cout << endl;
+        cin>>arr[i];
     }
 
-    cout << "The array is : ";
+    cout<<endl;
+
+    cout << "The array is : { ";
 
     for (int i = 0; i < size; i++)
     {
-        cout << arr[i] << " ";
+        cout << arr[i];
+
+        if (i != size - 1)
+        {
+            cout << ", ";
+        }
     }
 
+    cout << " }";
     cout << endl;
     cout << endl;
 
     cout << "The subarrays are : " << endl;
 
-    for (int start = 0; start < size; start++)
-    {
-        for (int end = start; end < size; end++)
-        {
-            for (int i = start; i <= end; i++)
-            {
-                cout << arr[i];
-            }
-            cout << " ";
-        }
-        cout << endl;
-    }
+    printSubarrays(arr, size);
 
     cout << endl;
 
-    cout << "The maximum subarray sum is : ";
+    int answer = maximumSubarraySum(arr, size);
 
-    int maxSum = INT_MIN;
-
-    for (int start = 0; start < size; start++)
-    {
-        int currentSum = 0;
-        for (int end = start; end < size; end++)
-        {
-            currentSum = currentSum + arr[end];
-            maxSum = max(currentSum, maxSum);
-        }
-    }
-
-    cout << maxSum;
-
-    cout << endl;
+    cout << "The maximum subarray sum is : " << answer << endl;
 
     return 0;
 }

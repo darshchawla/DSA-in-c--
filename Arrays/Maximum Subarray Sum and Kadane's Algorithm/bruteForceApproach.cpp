@@ -85,7 +85,6 @@ int main()
     int answer = maximumSubarraySum(arr, size);
 
     cout << "The maximum subarray sum is : " << answer << endl;
-    ;
 
     return 0;
 }
