@@ -4,28 +4,25 @@ using namespace std;
 
 vector<int> rearrangeArrayElements(vector<int> &arr, int size)
 {
-    vector<int> positive;
-    vector<int> negative;
+    vector<int> answer(size, 0);
+    int positiveIndex = 0;
+    int negativeIndex = 1;
 
     for (int i = 0; i < size; i++)
     {
         if (arr[i] > 0)
         {
-            positive.push_back(arr[i]);
+            answer[positiveIndex] = arr[i];
+            positiveIndex += 2;
         }
         else
         {
-            negative.push_back(arr[i]);
+            answer[negativeIndex] = arr[i];
+            negativeIndex += 2;
         }
     }
 
-    for (int i = 0; i < size / 2; i++)
-    {
-        arr[2 * i] = positive[i];
-        arr[2 * i + 1] = negative[i];
-    }
-
-    return arr;
+    return answer;
 }
 
 int main()
@@ -76,7 +73,6 @@ int main()
     }
 
     cout << " }";
-    cout << endl;
     cout << endl;
 
     return 0;
