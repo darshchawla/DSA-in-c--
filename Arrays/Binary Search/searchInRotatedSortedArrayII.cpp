@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int search(int arr[], int size, int target)
+bool search(int arr[], int size, int target)
 {
     int start = 0;
     int end = size - 1;
@@ -12,7 +12,14 @@ int search(int arr[], int size, int target)
 
         if (arr[mid] == target)
         {
-            return mid;
+            return true;
+        }
+
+        if (arr[start] == arr[mid] && arr[mid] == arr[end])
+        {
+            start++;
+            end--;
+            continue;
         }
 
         if (arr[start] <= arr[mid])
@@ -40,7 +47,7 @@ int search(int arr[], int size, int target)
         }
     }
 
-    return -1;
+    return false;
 }
 
 int main()
@@ -53,13 +60,14 @@ int main()
 
     cout << endl;
 
+    cout << "Enter all the elements of the array : ";
+
     for (int i = 0; i < size; i++)
     {
-        int a = i + 1;
-        cout << "Enter element number " << a << " : ";
         cin >> arr[i];
-        cout << endl;
     }
+
+    cout << endl;
 
     cout << "The array is : ";
 
@@ -79,9 +87,9 @@ int main()
 
     int answer = search(arr, size, target);
 
-    if (answer != -1)
+    if (answer == 1)
     {
-        cout << "Element found at index : " << answer << "." << endl;
+        cout << "Element is present in the array." << endl;
     }
 
     else
