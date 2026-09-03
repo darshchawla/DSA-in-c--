@@ -107,7 +107,7 @@ int main()
 
     int b = lastOccurrence(arr, size, target);
 
-    cout << "The first and last occurrence of the element " << target << " is at indices : " << "(" << a << ", " << b << ")" << endl;
+    cout << "The first and last occurrence of the element " << target << " is at indices : " << "(" << a << ", " << b << " )" << endl;
 
     return 0;
 }
