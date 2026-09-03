@@ -10,7 +10,7 @@ void merge(int arr1[], int size1, int arr2[], int size2, int arr3[])
     while (i < size1 && j < size2)
     {
 
-        if (arr1[i] < arr2[j])
+        if (arr1[i] <= arr2[j])
         {
             arr3[k] = arr1[i];
             k++;
