@@ -3,47 +3,36 @@
 #include <climits>
 using namespace std;
 
-int findRotation(vector<int> &arr, int size)
+int minimum(vector<int> &arr, int size)
 {
     int start = 0;
     int end = size - 1;
     int answer = INT_MAX;
-    int index = -1;
 
     while (start <= end)
     {
         int mid = start + (end - start) / 2;
 
-        if (arr[start] <= arr[end])
+        if (arr[start] <= arr[end]) // Entire array is sorted
         {
-            if (arr[start] < answer)
-            {
-                index = start;
-                answer = min(answer, arr[start]);
-            }
+            answer = min(answer, arr[start]);
             break;
         }
+
         else if (arr[start] <= arr[mid])
         {
-            if (arr[start] < answer)
-            {
-                index = start;
-                answer = min(answer, arr[start]);
-            }
+            answer = min(answer, arr[start]);
             start = mid + 1;
         }
+
         else
         {
             end = mid - 1;
-            if (arr[mid] < answer)
-            {
-                index = mid;
-                answer = min(answer, arr[mid]);
-            }
+            answer = min(answer, arr[mid]);
         }
     }
 
-    return index;
+    return answer;
 }
 
 int main()
@@ -75,9 +64,9 @@ int main()
     cout << endl;
     cout << endl;
 
-    int answer = findRotation(arr, size);
+    int answer = minimum(arr, size);
 
-    cout << "The array has been rotated " << answer << " times." << endl;
+    cout << "The minimum element in the array is : " << answer << endl;
 
     return 0;
 }
