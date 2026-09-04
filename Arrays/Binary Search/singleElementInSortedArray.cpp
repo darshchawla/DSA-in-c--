@@ -1,55 +1,41 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int singleElement(int arr[], int size)
+int singleElement(vector<int> &arr, int size)
 {
-    int start = 0;
-    int end = size - 1;
-
     if (size == 1)
     {
         return arr[0];
     }
+    if (arr[0] != arr[1])
+    {
+        return arr[0];
+    }
+    if (arr[size - 1] != arr[size - 2])
+    {
+        return arr[size - 1];
+    }
+
+    int start = 1;
+    int end = size - 2;
 
     while (start <= end)
     {
         int mid = start + (end - start) / 2;
 
-        if (arr[mid] == 0 && arr[0] != arr[1])
-        {
-            return arr[mid];
-        }
-        if (arr[mid] == size - 1 && arr[size - 1] != arr[size - 2])
-        {
-            return arr[mid];
-        }
         if (arr[mid - 1] != arr[mid] && arr[mid] != arr[mid + 1])
         {
             return arr[mid];
         }
-
-        if (mid % 2 == 0) // even
+        if ((mid % 2 == 1 && arr[mid - 1] == arr[mid]) || (mid % 2 == 0 && arr[mid] == arr[mid + 1])) // Standing of left half
         {
-            if (arr[mid - 1] == arr[mid])
-            {
-                end = mid - 1;
-            }
-            else
-            {
-                start = mid + 1;
-            }
+            start = mid + 1; // Eliminate the left half.
         }
 
-        else // odd
+        else // Standing on right half
         {
-            if (arr[mid - 1] == arr[mid])
-            {
-                start = mid + 1;
-            }
-            else
-            {
-                end = mid - 1;
-            }
+            end = mid - 1; // Eliminate the right half
         }
     }
 
@@ -62,7 +48,7 @@ int main()
     cout << "Enter the size of the array : ";
     cin >> size;
 
-    int arr[size];
+    vector<int> arr(size);
 
     cout << endl;
 
@@ -75,19 +61,24 @@ int main()
 
     cout << endl;
 
-    cout << "The array is : ";
+    cout << "The array is : { ";
 
     for (int i = 0; i < size; i++)
     {
-        cout << arr[i] << " ";
+        cout << arr[i];
+        if (i != size - 1)
+        {
+            cout << ", ";
+        }
     }
 
+    cout << " }";
     cout << endl;
     cout << endl;
 
-    int a = singleElement(arr, size);
+    int answer = singleElement(arr, size);
 
-    cout << "The single element in the array is : " << a << endl;
+    cout << "The single element in the array is : " << answer << endl;
 
     return 0;
 }
