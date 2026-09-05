@@ -8,9 +8,24 @@ int peakElement(vector<int> &arr, int size)
     {
         if ((i == 0 || arr[i - 1] < arr[i]) && (i == size - 1 || arr[i] > arr[i + 1]))
         {
+            return arr[i];
+        }
+    }
+
+    return -1;
+}
+
+int peakIndex(vector<int> &arr, int size)
+{
+    for (int i = 0; i < size; i++) // Time Complexity -> O(n).
+    {
+        if ((i == 0 || arr[i - 1] < arr[i]) && (i == size - 1 || arr[i] > arr[i + 1]))
+        {
             return i;
         }
     }
+
+    return -1;
 }
 
 int main()
@@ -47,9 +62,15 @@ int main()
     cout << endl;
     cout << endl;
 
-    int answer = peakElement(arr, size);
+    int answer1 = peakElement(arr, size);
 
-    cout << "The index of peak element is : " << answer << endl;
+    cout << "The peak element is : " << answer1 << endl;
+
+    cout << endl;
+
+    int answer2 = peakIndex(arr, size);
+
+    cout << "The index of peak element is : " << answer2 << endl;
 
     return 0;
 }
